@@ -13,8 +13,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'oracle'
-    - name: Run the Maven verify phase
-      run: mvn --batch-mode --update-snapshots verify
+    - name: Run the Ant jar target
+      run: ant -noinput -buildfile build-ci.xml jar
     
   checkstyle_job:
     runs-on: ubuntu-latest
