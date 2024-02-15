@@ -43,8 +43,8 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
 
     - run: |
-        echo Run the Maven verify phase
-        mvn --batch-mode --update-snapshots verify
+        echo "Run, Build Application using script"
+        /opt/hostedtoolcache/CodeQL/2.16.2/x64/codeql/java/tools/autobuild.sh
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
