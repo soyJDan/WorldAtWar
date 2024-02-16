@@ -4,7 +4,23 @@ import java.util.Random;
 
 /**
  * @author dani
+ *2.- Crea una clase abstracta Animal con atributos:
  *
+ * Nombre - String
+ * Ataque - int  -> La suma ataque + defensa + salud es siempre = 150
+ * Defensa - int
+ * Salud - int
+ * Peso - int
+ * Multiplicador - float
+ * Crea 2 subclases:
+ *
+ * Elefante: con un peso de 10, y multiplicador 2
+ * Tigre: con un peso de 5 y multiplicador 1'5
+ * Los atributos Ataque-Defensa-Salud (suma = 150) ,
+ * serán iguales para cada unidad por separado, es decir,
+ * dos Elefantes no pueden tener cualidades diferentes.
+ * El valor de estos atributos es random, cumpliendo con las condiciones
+ * anteriores (suma = 150 e idénticos para cada unidad).
  */
 public abstract class Animal {
 
