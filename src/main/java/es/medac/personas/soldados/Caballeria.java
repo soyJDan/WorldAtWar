@@ -23,4 +23,14 @@ public class Caballeria extends Persona {
 
         }
     }
+    @Override
+    public  String toString() {
+        return "Caballería{" +
+                "ID='" + getId() + '\'' +
+                ", Ataque=" + getAtaque() +
+                ", Defensa=" + getDefensa() +
+                ", Salud=" + getSalud() +
+                '}';
+    }
+
 }

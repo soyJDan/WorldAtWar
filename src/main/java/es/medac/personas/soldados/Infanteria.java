@@ -24,4 +24,15 @@ public class Infanteria extends Persona {
 
         }
     }
-}
+
+    @Override
+    public String toString() {
+        return "Infanteria{" +
+                "ID='" + getId() + '\'' +
+                ", Ataque=" + getAtaque() +
+                ", Defensa=" + getDefensa() +
+                ", Salud=" + getSalud() +
+                '}';
+    }
+
+    }

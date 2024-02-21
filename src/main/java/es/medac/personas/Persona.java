@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class Persona {
     public Random Estadisticas_Random = new Random(10 - 100);
     private int ataque;
-    private int id;
+    public int id;
     private int defensa;
     private int salud;
     private int peso;

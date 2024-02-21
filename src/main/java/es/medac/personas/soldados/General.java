@@ -35,5 +35,15 @@ public class General extends Persona {
 
         }
     }
+    @Override
+    public String toString() {
+        return "General{" +
+                "ID='" + getId() + '\'' +
+                ", Ataque=" + getAtaque() +
+                ", Defensa=" + getDefensa() +
+                ", Salud=" + getSalud() +
+                '}';
+    }
+
 }
 
