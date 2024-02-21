@@ -1,9 +1,5 @@
 package es.medac.reader;
 
-/**
- *
- * @author carlo
- */
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -30,9 +26,9 @@ public class GestorFicheroEntrada {
      * variable hará que se lea linea por linea un fichero de texto
      */
     private BufferedReader br;
+    
     /**
-     * variable tipo ArrayList que va a almacenar las lineas de texto leidas por
-     * br
+     * variable tipo ArrayList que va a almacenar las lineas de texto 
      */
     private ArrayList<String> nombreGeneral;
 
