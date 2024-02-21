@@ -6,45 +6,44 @@ package es.medac;
  * @author carlo
  */
 import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
+import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class GestorFicheroEntrada {
-    private List<String> nombresGenerales;
 
-    public GestorFicheroEntrada(String rutaArchivo) {
-        nombresGenerales = new ArrayList<>();
-        leerNombresGeneralDesdeArchivo(rutaArchivo);
+    private String rutaFichero;
+    private BufferedReader br;
+    private ArrayList<String> nombreGeneral;
+    private String nombreDeGeneral;
+    
+    public GestorFicheroEntrada(String rutaFichero) throws FileNotFoundException {
+        this.rutaFichero = rutaFichero;
+        File lector = new File(rutaFichero);
+        FileReader fr = new FileReader(lector);
+        this.br = new BufferedReader(fr);
     }
 
-    private void leerNombresGeneralDesdeArchivo(String rutaArchivo) {
-        try {
-            File archivo = new File(rutaArchivo);
-            Scanner scanner = new Scanner(archivo);
-
-            while (scanner.hasNextLine()) {
-                String nombreGeneral = scanner.nextLine();
-                nombresGenerales.add(nombreGeneral);
-            }
-
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+    public ArrayList<String> leerArchivo() throws IOException {
+         nombreGeneral = new ArrayList<>();
+        String linea;
+        while ((linea = this.br.readLine()) != null) {
+            nombreGeneral.add(linea);
         }
+        return nombreGeneral;
     }
-
-    public String obtenerNombreGeneralAlAzar() {
-        if (nombresGenerales.isEmpty()) {
-            return "No hay nombres de generales disponibles.";
-        }
-
-        Random random = new Random();
-        int indiceAleatorio = random.nextInt(nombresGenerales.size());
-        return nombresGenerales.get(indiceAleatorio);
+    public void obtenerNombreGeneral(){
+        
+    Random random = new Random();
+        int indiceGeneralAleatorio = random.nextInt(nombreGeneral.size());
+        nombreGeneral.get(indiceGeneralAleatorio);
+        nombreDeGeneral = nombreGeneral.get(indiceGeneralAleatorio);
+        System.out.println(nombreDeGeneral);
+    
     }
-
 }
-
