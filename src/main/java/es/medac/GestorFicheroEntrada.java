@@ -29,13 +29,13 @@ public class GestorFicheroEntrada {
         this.br = new BufferedReader(fr);
     }
 
-    public ArrayList<String> leerArchivo() throws IOException {
+    public void leerArchivo() throws IOException {
          nombreGeneral = new ArrayList<>();
         String linea;
         while ((linea = this.br.readLine()) != null) {
             nombreGeneral.add(linea);
         }
-        return nombreGeneral;
+      
     }
     public void obtenerNombreGeneral(){
         
