@@ -21,6 +21,7 @@ public class GestorFicheroEntrada {
      * variable que almacena la ruta de donde se va a leer el fichero
      */
     private String rutaFichero;
+    
     /**
      * variable que almacena un objeto tipo BufferedReader utilizar esta
      * variable hará que se lea linea por linea un fichero de texto
