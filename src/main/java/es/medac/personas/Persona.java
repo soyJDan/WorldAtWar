@@ -1,52 +1,55 @@
 package es.medac.personas;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-/* 1.- Crea una clase abstracta Persona con atributos:
-
-Nombre - String
-Ataque - int  -> La suma ataque + defensa + salud es siempre = 100
-Defensa - int
-Salud - int
-Peso - int
-Multiplicador - float
-Crea 3 subclases:
-
-Soldado Infantería: con un peso de 1, y multiplicador 1
-Soldado Caballería: con un peso de 2 y multiplicador 1'5
-General: con un peso de 1 y un multiplicador random entre 2 y 3.
-Los atributos Ataque-Defensa-Salud (suma = 100) , serán iguales para cada unidad por separado,
- es decir, dos soldados de Infantería no pueden tener cualidades diferentes. El valor de estos atributos es random,
-  cumpliendo con las condiciones anteriores (suma = 100 e idénticos para cada unidad).*/
 public abstract class Persona {
+    public Random Estadisticas_Random = new Random(10 - 100);
     private int ataque;
-    private int ID;
+    private int id;
     private int defensa;
     private int salud;
     private int peso;
     private float multiplicador;
-    private Random Estadisticas_Random = new Random();
     private String nombre;
 
-    public Persona(String nombre, int peso , float multiplicador) {
-
+    //Nos quedamos con uno de los constructores y luego adaptamos el constructor al proyecto.
+    public Persona(String nombre, int peso) {
         this.nombre = nombre;
+        this.peso = peso;
+        this.multiplicador = 1;
+        generarEstadisticas();
+
+    }
+
+    public Persona(int peso, float multiplicador) {
+        this.id = generarid(id);
         this.peso = peso;
         this.multiplicador = multiplicador;
 
 
     }
 
-    public Persona(int ID, int peso, float multiplicador) {
+    public void generarEstadisticas() {
+        ataque = ThreadLocalRandom.current().nextInt(10, 99 + 1);
+        defensa = Estadisticas_Random.nextInt(100 - getAtaque());
+        salud = Estadisticas_Random.nextInt(100 - getAtaque() + getDefensa());
+        int diferencia = 100 - (getAtaque() + getDefensa() + getSalud());
+        setSalud(getSalud() + diferencia);
+    }
 
-        this.ID = ID;
-        this.peso = this.peso;
-        this.multiplicador = this.multiplicador;
-
+    public void actualizarEstadisticas(float multiplicador) {
+        ataque = (int) (ataque * multiplicador);
+        defensa = (int) (defensa * multiplicador);
+        salud = (int) (salud * multiplicador);
 
     }
 
+    public int generarid(int id) {
 
+        return id = ThreadLocalRandom.current().nextInt(1000, 9999 + 1);
+
+    }
 
     public String getNombre() {
         return nombre;
@@ -54,6 +57,14 @@ public abstract class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAtaque() {
@@ -96,15 +107,5 @@ public abstract class Persona {
         this.multiplicador = multiplicador;
     }
 
-    public void generarEstadisticas() {
-        ataque = Estadisticas_Random.nextInt(100);
-        defensa = Estadisticas_Random.nextInt(100 - getAtaque());
-        salud = Estadisticas_Random.nextInt(100 - getAtaque() + getDefensa());
-        int diferencia = 100 - (getAtaque() + getDefensa() + getSalud());
-        setSalud(getSalud() + diferencia);
-    }
-
 
 }
-
-
