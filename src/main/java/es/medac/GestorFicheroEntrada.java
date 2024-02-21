@@ -20,7 +20,7 @@ public class GestorFicheroEntrada {
     private String rutaFichero;
     private BufferedReader br;
     private ArrayList<String> nombreGeneral;
-    private String nombreDeGeneral;
+   
     
     public GestorFicheroEntrada(String rutaFichero) throws FileNotFoundException {
         this.rutaFichero = rutaFichero;
@@ -40,6 +40,7 @@ public class GestorFicheroEntrada {
     public void obtenerNombreGeneral(){
         
     Random random = new Random();
+        String nombreDeGeneral;
         int indiceGeneralAleatorio = random.nextInt(nombreGeneral.size());
         nombreGeneral.get(indiceGeneralAleatorio);
         nombreDeGeneral = nombreGeneral.get(indiceGeneralAleatorio);
