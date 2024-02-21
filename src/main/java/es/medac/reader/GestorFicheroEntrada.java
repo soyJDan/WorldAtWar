@@ -61,8 +61,9 @@ public class GestorFicheroEntrada {
     }
 
     /**
-     *metodo que sirve para seleccionar un número aleatorio del incide del ArrayList y almacena
-     * el contenido de dicho indice en la variable nombreDeGeneral
+     * metodo que sirve para seleccionar un número aleatorio del incide del
+     * ArrayList y almacena el contenido de dicho indice en la variable
+     * nombreDeGeneral
      */
     public void obtenerNombreGeneral() {
 
