@@ -1,9 +1,5 @@
 package es.medac.reader;
 
-/**
- *
- * @author carlo
- */
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -25,14 +21,15 @@ public class GestorFicheroEntrada {
      * variable que almacena la ruta de donde se va a leer el fichero
      */
     private String rutaFichero;
+    
     /**
      * variable que almacena un objeto tipo BufferedReader utilizar esta
      * variable hará que se lea linea por linea un fichero de texto
      */
     private BufferedReader br;
+    
     /**
-     * variable tipo ArrayList que va a almacenar las lineas de texto leidas por
-     * br
+     * variable tipo ArrayList que va a almacenar las lineas de texto 
      */
     private ArrayList<String> nombreGeneral;
 
@@ -61,8 +58,9 @@ public class GestorFicheroEntrada {
     }
 
     /**
-     *metodo que sirve para seleccionar un número aleatorio del incide del ArrayList y almacena
-     * el contenido de dicho indice en la variable nombreDeGeneral
+     * metodo que sirve para seleccionar un número aleatorio del incide del
+     * ArrayList y almacena el contenido de dicho indice en la variable
+     * nombreDeGeneral
      */
     public void obtenerNombreGeneral() {
 
