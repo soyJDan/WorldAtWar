@@ -1,19 +1,13 @@
-name: CheckStyle
-
-on: 
-  pull_request:
-    branches: [ "main" ]
-
+name: reviewdog
+on: [pull_request]
 jobs:
-  checkstyle_job:
+  checkstyle:
+    name: runner / checkstyle
     runs-on: ubuntu-latest
-    name: CheckStyle Job
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Run check style
-      uses: nikitasavinov/checkstyle-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: 'github-pr-check'
+      - uses: actions/checkout@v4
+      - uses: dbelyaev/action-checkstyle@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          checkstyle_config: sun_checks.xml
