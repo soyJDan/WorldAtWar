@@ -21,55 +21,68 @@ public class GestorFicheroEntrada {
      * variable que almacena la ruta de donde se va a leer el fichero
      */
     private String rutaFichero;
-    
+
     /**
      * variable que almacena un objeto tipo BufferedReader utilizar esta
      * variable hará que se lea linea por linea un fichero de texto
      */
-    private BufferedReader br;
+    private BufferedReader lectorLinea;
+
+    /**
+     * variable tipo ArrayList que va a almacenar las lineas de texto
+     */
+    private ArrayList<String> listaNombresGeneral;
     
     /**
-     * variable tipo ArrayList que va a almacenar las lineas de texto 
+     * variable tipo String que guardara un nombre aleatorio que se obtiene de listaNombresGeneral
+     * @see  obtenerNombreGeneral
      */
-    private ArrayList<String> nombreGeneral;
+    private String nombreDeGeneral;
 
     /**
      * @param rutaFichero
      *
      */
     public GestorFicheroEntrada(String rutaFichero) throws FileNotFoundException {
+        this.listaNombresGeneral = new ArrayList<>();
         this.rutaFichero = rutaFichero;
-        File lector = new File(rutaFichero);
-        FileReader fr = new FileReader(lector);
-        this.br = new BufferedReader(fr);
+        File fichero = new File(rutaFichero);
+        FileReader lectorLetra = new FileReader(fichero);
+        this.lectorLinea = new BufferedReader(lectorLetra);
     }
 
     /**
-     * método que sirve para leer un archivo y almacenar las lineas en un
+     * método que lee un archivo y almacenar las lineas en un
      * ArrayList
      */
     public void leerArchivo() throws IOException {
-        nombreGeneral = new ArrayList<>();
-        String linea;
-        while ((linea = this.br.readLine()) != null) {
-            nombreGeneral.add(linea);
-        }
 
+        String linea;
+        while ((linea = this.lectorLinea.readLine()) != null) {
+            listaNombresGeneral.add(linea);
+
+        }
+        lectorLinea.close();
     }
 
     /**
      * metodo que sirve para seleccionar un número aleatorio del incide del
-     * ArrayList y almacena el contenido de dicho indice en la variable
+     * ArrayList listaNombresGeneral y almacena el contenido de dicho indice en la variable
      * nombreDeGeneral
      */
     public void obtenerNombreGeneral() {
 
         Random random = new Random();
-        String nombreDeGeneral;
-        int indiceGeneralAleatorio = random.nextInt(nombreGeneral.size());
-        nombreGeneral.get(indiceGeneralAleatorio);
-        nombreDeGeneral = nombreGeneral.get(indiceGeneralAleatorio);
-        System.out.println(nombreDeGeneral);
+        int indiceGeneralAleatorio = random.nextInt(listaNombresGeneral.size());
+        nombreDeGeneral = listaNombresGeneral.get(indiceGeneralAleatorio);
+    }
 
+    /**
+     *
+     * @return nombreDeGeneral
+     */
+    public String getNombreDeGeneral() {
+
+        return nombreDeGeneral;
     }
 }
